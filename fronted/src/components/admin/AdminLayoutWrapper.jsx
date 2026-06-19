@@ -14,14 +14,19 @@ export default function AdminLayoutWrapper({ children }) {
   // Sync theme to document element on mount
   useEffect(() => {
     const localTheme = localStorage.getItem("theme");
+    let initialDark = true;
     if (localTheme) {
-      setDarkMode(localTheme === "dark");
+      initialDark = localTheme === "dark";
     } else {
       // Check system preference
       const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-      setDarkMode(mediaQuery.matches);
+      initialDark = mediaQuery.matches;
     }
-    setMounted(true);
+    
+    setTimeout(() => {
+      setDarkMode(initialDark);
+      setMounted(true);
+    }, 0);
   }, []);
 
   useEffect(() => {

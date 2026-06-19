@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Admin Dashboard - TailAdmin",
+  title: "Admin Dashboard - NESTRO",
   description: "Next.js Tailwind Admin Dashboard Layout",
 };
 

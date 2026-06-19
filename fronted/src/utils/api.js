@@ -192,5 +192,116 @@ export const updateCategory = async (id, categoryData) => {
     }
 };
 
+export const fetchProducts = async (params = {}) => {
+    try {
+        const response = await client.get("product", { params });
+        return {
+            success: response.data.success,
+            data: response.data.products || [],
+            meta: response.data.meta || null,
+            message: response.data.message
+        };
+    } catch (error) {
+        return {
+            success: false,
+            data: [],
+            meta: null,
+            message: error.response?.data?.message || "Internal Server Error"
+        };
+    }
+};
+
+export const fetchProductById = async (id) => {
+    try {
+        const response = await client.get(`product/${id}`);
+        return {
+            success: response.data.success,
+            data: response.data.product || null,
+            message: response.data.message
+        };
+    } catch (error) {
+        return {
+            success: false,
+            data: null,
+            message: error.response?.data?.message || "Internal Server Error"
+        };
+    }
+};
+
+export const addProduct = async (productData) => {
+    try {
+        const response = await client.post("product/create", productData);
+        return {
+            success: response.data.success,
+            message: response.data.message
+        };
+    } catch (error) {
+        return {
+            success: false,
+            message: error.response?.data?.message || "Internal Server Error"
+        };
+    }
+};
+
+export const updateProduct = async (id, productData) => {
+    try {
+        const response = await client.put(`product/update/${id}`, productData);
+        return {
+            success: response.data.success,
+            message: response.data.message
+        };
+    } catch (error) {
+        return {
+            success: false,
+            message: error.response?.data?.message || "Internal Server Error"
+        };
+    }
+};
+
+export const deleteProduct = async (id) => {
+    try {
+        const response = await client.delete(`product/delete/${id}`);
+        return {
+            success: response.data.success,
+            message: response.data.message
+        };
+    } catch (error) {
+        return {
+            success: false,
+            message: error.response?.data?.message || "Internal Server Error"
+        };
+    }
+};
+
+export const toggleProductStatus = async (id) => {
+    try {
+        const response = await client.patch(`product/status-update/${id}`);
+        return {
+            success: response.data.success,
+            message: response.data.message
+        };
+    } catch (error) {
+        return {
+            success: false,
+            message: error.response?.data?.message || "Internal Server Error"
+        };
+    }
+};
+
+export const toggleProductField = async (id, flag) => {
+    try {
+        const response = await client.patch(`product/status/${id}`, { flag });
+        return {
+            success: response.data.success,
+            message: response.data.message
+        };
+    } catch (error) {
+        return {
+            success: false,
+            message: error.response?.data?.message || "Internal Server Error"
+        };
+    }
+};
+
 
 

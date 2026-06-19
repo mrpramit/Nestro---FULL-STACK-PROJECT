@@ -17,7 +17,6 @@ export default function CategoryPage() {
 
   // Load categories from API
   const loadCategories = async () => {
-    setLoading(true);
     const response = await fetchCategories();
     if (response.success) {
       setCategories(response.data);
@@ -28,7 +27,9 @@ export default function CategoryPage() {
   };
 
   useEffect(() => {
-    loadCategories();
+    setTimeout(() => {
+      loadCategories();
+    }, 0);
   }, []);
 
   // Close dropdown on click outside

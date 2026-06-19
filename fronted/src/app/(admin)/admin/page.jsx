@@ -14,10 +14,10 @@ export default function AdminDashboard() {
 
   return (
     <div className="space-y-6">
-      
+
       {/* 1. Overview Metric Cards Grid */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-6">
-        
+
         {/* Card 1: Avg. Client Rating */}
         <div className="rounded-sm border border-[#e2e8f0] bg-white p-6 shadow-sm dark:border-[#2e3a47] dark:bg-[#1c2434] transition-colors duration-300">
           <div className="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-[#f7f9fc] dark:bg-[#24303f] text-[#3c50e0] dark:text-blue-400">
@@ -79,7 +79,7 @@ export default function AdminDashboard() {
 
       {/* 2. Charts Section */}
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 md:gap-6">
-        
+
         {/* Main Chart: Impression & Data Traffic */}
         <div className="lg:col-span-2 rounded-sm border border-[#e2e8f0] bg-white p-6 shadow-sm dark:border-[#2e3a47] dark:bg-[#1c2434] transition-colors duration-300">
           <div className="flex flex-wrap items-start justify-between gap-3 sm:flex-nowrap">
@@ -175,11 +175,10 @@ export default function AdminDashboard() {
               <button
                 key={tab}
                 onClick={() => setTrafficTab(tab)}
-                className={`flex-1 rounded py-1.5 text-xs font-semibold uppercase transition-all duration-200 ${
-                  trafficTab === tab
-                    ? "bg-white text-black dark:bg-[#1c2434] dark:text-white shadow-sm"
-                    : "text-slate-400 hover:text-black dark:hover:text-white"
-                }`}
+                className={`flex-1 rounded py-1.5 text-xs font-semibold uppercase transition-all duration-200 ${trafficTab === tab
+                  ? "bg-white text-black dark:bg-[#1c2434] dark:text-white shadow-sm"
+                  : "text-slate-400 hover:text-black dark:hover:text-white"
+                  }`}
               >
                 {tab}
               </button>

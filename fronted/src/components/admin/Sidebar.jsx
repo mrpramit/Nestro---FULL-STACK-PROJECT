@@ -142,7 +142,9 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, sidebarCollapsed 
         if (item.hasSubmenu && item.submenuItems) {
           const hasActiveSub = item.submenuItems.some((sub) => pathname === sub.href);
           if (hasActiveSub) {
-            setExpandedMenu(item.name);
+            setTimeout(() => {
+              setExpandedMenu(item.name);
+            }, 0);
             return;
           }
         }
@@ -174,7 +176,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, sidebarCollapsed 
             <LogoIcon className="w-8 h-8 text-blue-500 fill-blue-500 flex-shrink-0" />
             {!sidebarCollapsed && (
               <span className="text-2xl font-bold text-white tracking-wide transition-opacity duration-300">
-                TailAdmin
+                NESTRO
               </span>
             )}
           </Link>

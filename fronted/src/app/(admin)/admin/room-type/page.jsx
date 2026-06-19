@@ -16,7 +16,6 @@ export default function RoomTypePage() {
 
   // Load rooms from API
   const loadRooms = async () => {
-    setLoading(true);
     const response = await fetchRooms();
     if (response.success) {
       setRooms(response.data);
@@ -27,7 +26,9 @@ export default function RoomTypePage() {
   };
 
   useEffect(() => {
-    loadRooms();
+    setTimeout(() => {
+      loadRooms();
+    }, 0);
   }, []);
 
   // Close dropdown on click outside
